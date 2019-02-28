@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_flowers:
-                Toast.makeText(this, "Flowers Clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Flower Clicked", Toast.LENGTH_SHORT).show();
 
                 switchActivity(FlowersActivity.class);
 
