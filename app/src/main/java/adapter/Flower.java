@@ -4,13 +4,11 @@ public class Flower {
     private int imageID;
     private String title;
     private String description;
-    private double size;
 
-    public Flower(int imageID, String title, String description, double size) {
+    public Flower(int imageID, String title, String description) {
         this.imageID = imageID;
         this.title = title;
         this.description = description;
-        this.size = size;
     }
 
     public int getImageID() {
@@ -37,21 +35,12 @@ public class Flower {
         this.description = description;
     }
 
-    public double getSize() {
-        return size;
-    }
-
-    public void setSize(double size) {
-        this.size = size;
-    }
-
     @Override
     public String toString() {
         return "Flower{" +
                 "imageID=" + imageID +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", size=" + size +
                 '}';
     }
 }

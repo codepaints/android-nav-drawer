@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import adapter.Landscape;
 
 
 /**
@@ -24,6 +27,10 @@ public class LandscapeFeedback extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_landscape_feedback, container, false);
+    }
+
+    public void setData(Landscape landscape) {
+
     }
 
 }
