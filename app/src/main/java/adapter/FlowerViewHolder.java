@@ -11,8 +11,8 @@ import me.jatinsoni.navigationdrawer.R;
 public class FlowerViewHolder extends RecyclerView.ViewHolder {
 
     public ImageView itemImage;
-    public TextView itemTitle;
-    public TextView itemDescription;
+    public TextView  itemTitle;
+    public TextView  itemDescription;
 
     public FlowerViewHolder(@NonNull View itemView) {
 
@@ -33,4 +33,9 @@ public class FlowerViewHolder extends RecyclerView.ViewHolder {
     public void setItemDescription(String itemDescription) {
         this.itemDescription.setText(itemDescription);
     }
+
+    public interface OnFlowerClickListener {
+        void onFlowerClicked(Flower position);
+    }
+
 }

@@ -1,10 +1,7 @@
 package adapter;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +10,13 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import me.jatinsoni.navigationdrawer.FlowerFeedback;
 import me.jatinsoni.navigationdrawer.FlowersActivity;
 import me.jatinsoni.navigationdrawer.R;
 
 public class FlowerAdapter extends RecyclerView.Adapter<FlowerViewHolder> {
 
     private List<Flower> mFlower;
-    private Context mContext;
+    private Context      mContext;
 
     public FlowerAdapter(List<Flower> mFlower, Context mContext) {
         this.mFlower = mFlower;
@@ -47,15 +43,7 @@ public class FlowerAdapter extends RecyclerView.Adapter<FlowerViewHolder> {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, "Flower item " + i, Toast.LENGTH_SHORT).show();
-
-                Bundle bundle = new Bundle();
-                bundle.putString("title", flower.getTitle());
-
-                FlowerFeedback flowerFeedback = new FlowerFeedback();
-                flowerFeedback.setArguments(bundle);
-
-                FlowersActivity activity = (FlowersActivity) v.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.flower_container, flowerFeedback).addToBackStack(null).commit();
+                ((FlowersActivity) mContext).onFlowerClicked(mFlower.get(i));
             }
         });
 

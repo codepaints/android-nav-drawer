@@ -1,13 +1,14 @@
 package me.jatinsoni.navigationdrawer;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import adapter.Flower;
+import adapter.FlowerViewHolder;
 
-public class FlowersActivity extends AppCompatActivity {
+public class FlowersActivity extends AppCompatActivity implements FlowerViewHolder.OnFlowerClickListener {
 
-    FlowerGrid flowerGrid;
+    FlowerGrid     flowerGrid;
     FlowerFeedback flowerFeedback;
 
     @Override
@@ -16,10 +17,15 @@ public class FlowersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_flowers);
 
         flowerGrid = FlowerGrid.newInstance();
-        getSupportFragmentManager().beginTransaction().replace(R.id.flower_container, flowerGrid).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.flower_grid_container, flowerGrid).commit();
+
+        flowerFeedback = FlowerFeedback.newInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.flower_feedback_container, flowerFeedback).commit();
     }
 
-    public void onFlowerClicked(Flower flower) {
 
+    @Override
+    public void onFlowerClicked(Flower flower) {
+        flowerFeedback.setFlower(flower);
     }
 }

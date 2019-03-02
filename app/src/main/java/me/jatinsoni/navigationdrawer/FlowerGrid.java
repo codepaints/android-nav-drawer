@@ -26,41 +26,46 @@ public class FlowerGrid extends Fragment {
     }
 
     public static FlowerGrid newInstance() {
+
         return new FlowerGrid();
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(
+            LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState
+    ) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_flower_grid, container, false);
 
         ArrayList<Flower> mFlowers = new ArrayList<>();
 
         String descriptionText = getResources().getString(R.string.description);
+        String descriptionTwoText = getResources().getString(R.string.description_two);
+        String descriptionThreeText = getResources().getString(R.string.description_three);
 
         mFlowers.add(new Flower(R.drawable.flower_1, "Flower One", descriptionText));
         mFlowers.add(new Flower(R.drawable.flower_2, "Flower Two", descriptionText));
 
         mFlowers.add(new Flower(R.drawable.flower_3, "Flower Three", descriptionText));
-        mFlowers.add(new Flower(R.drawable.flower_4, "Flower Four", descriptionText));
-        mFlowers.add(new Flower(R.drawable.flower_5, "Flower Five", descriptionText));
+        mFlowers.add(new Flower(R.drawable.flower_4, "Flower Four", descriptionTwoText));
+        mFlowers.add(new Flower(R.drawable.flower_5, "Flower Five", descriptionThreeText));
         mFlowers.add(new Flower(R.drawable.flower_6, "Flower Six", descriptionText));
-        mFlowers.add(new Flower(R.drawable.flower_7, "Flower Seven", descriptionText));
+        mFlowers.add(new Flower(R.drawable.flower_7, "Flower Seven", descriptionTwoText));
         mFlowers.add(new Flower(R.drawable.flower_8, "Flower Eight", descriptionText));
-        mFlowers.add(new Flower(R.drawable.flower_9, "Flower Nine", descriptionText));
-        mFlowers.add(new Flower(R.drawable.flower_10, "Flower Ten", descriptionText));
+        mFlowers.add(new Flower(R.drawable.flower_9, "Flower Nine", descriptionThreeText));
+        mFlowers.add(new Flower(R.drawable.flower_10, "Flower Ten", descriptionTwoText));
         mFlowers.add(new Flower(R.drawable.flower_11, "Flower Eleven", descriptionText));
-        mFlowers.add(new Flower(R.drawable.flower_12, "Flower Twelve", descriptionText));
-        mFlowers.add(new Flower(R.drawable.flower_13, "Flower Thirteen", descriptionText));
-        mFlowers.add(new Flower(R.drawable.flower_14, "Flower Fourteen", descriptionText));
-        mFlowers.add(new Flower(R.drawable.flower_15, "Flower Fifteen", descriptionText));
+        mFlowers.add(new Flower(R.drawable.flower_12, "Flower Twelve", descriptionThreeText));
+        mFlowers.add(new Flower(R.drawable.flower_13, "Flower Thirteen", descriptionTwoText));
+        mFlowers.add(new Flower(R.drawable.flower_14, "Flower Fourteen", descriptionThreeText));
+        mFlowers.add(new Flower(R.drawable.flower_15, "Flower Fifteen", descriptionTwoText));
         mFlowers.add(new Flower(R.drawable.flower_16, "Flower Sixteen", descriptionText));
 
-        RecyclerView mRecyclerView = rootView.findViewById(R.id.flower_list_view);
+        RecyclerView               mRecyclerView  = rootView.findViewById(R.id.flower_list_view);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
-        RecyclerView.Adapter mAdapter = new FlowerAdapter(mFlowers, getActivity());
+        RecyclerView.Adapter       mAdapter       = new FlowerAdapter(mFlowers, getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 

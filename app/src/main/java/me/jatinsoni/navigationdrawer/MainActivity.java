@@ -1,24 +1,25 @@
 package me.jatinsoni.navigationdrawer;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle toggle;
     NavigationView navigationView;
+    private DrawerLayout          drawerLayout;
+    private ActionBarDrawerToggle toggle;
+    private ImageView             flowerBanner, landscapeBanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout = findViewById(R.id.drawable_layout);
         navigationView = findViewById(R.id.navigation_view);
+
+        flowerBanner = findViewById(R.id.flower_banner);
+        landscapeBanner = findViewById(R.id.landscape_banner);
+
+        // set click for flower and landscape banners on main activity
+        flowerBanner.setOnClickListener(this);
+        landscapeBanner.setOnClickListener(this);
 
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
         drawerLayout.addDrawerListener(toggle);
@@ -55,30 +63,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(this, "Home Clicked", Toast.LENGTH_SHORT).show();
 
                 switchActivity(MainActivity.class);
-
-//                Intent homeIntent = new Intent(this, MainActivity.class);
-//                startActivity(homeIntent);
-
                 break;
 
             case R.id.nav_flowers:
                 Toast.makeText(this, "Flower Clicked", Toast.LENGTH_SHORT).show();
 
                 switchActivity(FlowersActivity.class);
-
-//                Intent flowersIntent = new Intent(this, FlowersActivity.class);
-//                startActivity(flowersIntent);
-
                 break;
 
             case R.id.nav_landscapes:
                 Toast.makeText(this, "Landscapes Clicked", Toast.LENGTH_SHORT).show();
 
                 switchActivity(LandscapesActivity.class);
-
-//                Intent landscapesIntent = new Intent(this, LandscapesActivity.class);
-//                startActivity(landscapesIntent);
-
                 break;
         }
 
@@ -88,6 +84,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void switchActivity(Class<?> activity) {
         Intent intent = new Intent(this, activity);
         startActivity(intent);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.flower_banner:
+                Intent intent = new Intent(MainActivity.this, FlowersActivity.class);
+                startActivity(intent);
+
+            case R.id.landscape_banner:
+                switchActivity(LandscapesActivity.class);
+        }
 
     }
 }
