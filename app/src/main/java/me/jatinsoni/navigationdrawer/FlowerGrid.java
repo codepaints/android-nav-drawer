@@ -64,7 +64,7 @@ public class FlowerGrid extends Fragment {
         mFlowers.add(new Flower(R.drawable.flower_16, "Flower Sixteen", descriptionText));
 
         RecyclerView               mRecyclerView  = rootView.findViewById(R.id.flower_list_view);
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
         RecyclerView.Adapter       mAdapter       = new FlowerAdapter(mFlowers, getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);

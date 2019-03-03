@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import adapter.Flower;
@@ -18,7 +19,8 @@ import adapter.Flower;
 public class FlowerFeedback extends Fragment {
 
     TextView flowerTitle, flowerDescription;
-    ImageView flowerImage;
+    ImageView  flowerImage;
+    ScrollView flowerFeedbackScrollVIew;
 
 
     public FlowerFeedback() {
@@ -40,7 +42,7 @@ public class FlowerFeedback extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_flower_feedback, container, false);
 
-        //@TODO get the fragment views
+        flowerFeedbackScrollVIew = rootView.findViewById(R.id.flower_feedback_scrollview);
         flowerImage = rootView.findViewById(R.id.flower_feedback_image);
         flowerTitle = rootView.findViewById(R.id.flower_feedback_title);
         flowerDescription = rootView.findViewById(R.id.flower_feedback_description);
@@ -49,7 +51,7 @@ public class FlowerFeedback extends Fragment {
     }
 
     public void setFlower(Flower flower) {
-        //@TODO set flower's value
+        flowerFeedbackScrollVIew.fullScroll(ScrollView.FOCUS_UP);
         flowerImage.setImageResource(flower.getImageID());
         flowerTitle.setText(flower.getTitle());
         flowerDescription.setText(flower.getDescription());
