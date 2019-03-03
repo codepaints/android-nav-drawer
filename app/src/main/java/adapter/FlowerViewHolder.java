@@ -35,7 +35,7 @@ public class FlowerViewHolder extends RecyclerView.ViewHolder {
     }
 
     public interface OnFlowerClickListener {
-        void onFlowerClicked(Flower position);
+        void onFlowerClicked(Flower flower);
     }
 
 }

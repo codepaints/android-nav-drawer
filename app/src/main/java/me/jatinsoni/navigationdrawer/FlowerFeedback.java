@@ -28,9 +28,7 @@ public class FlowerFeedback extends Fragment {
     }
 
     public static FlowerFeedback newInstance() {
-
         return new FlowerFeedback();
-
     }
 
 

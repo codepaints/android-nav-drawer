@@ -9,7 +9,6 @@
     android:elevation="8dp"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:padding="1dp"
     app:cardPreventCornerOverlap="true">
 
     <android.support.constraint.ConstraintLayout

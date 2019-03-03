@@ -16,7 +16,7 @@ import me.jatinsoni.navigationdrawer.R;
 public class LandscapeAdapter extends RecyclerView.Adapter<LandscapeViewHolder> {
 
     private List<Landscape> mLandscape;
-    private Context mContext;
+    private Context         mContext;
 
     public LandscapeAdapter(List<Landscape> mLandscape, Context mContext) {
         this.mLandscape = mLandscape;
@@ -38,14 +38,14 @@ public class LandscapeAdapter extends RecyclerView.Adapter<LandscapeViewHolder> 
         landscapeViewHolder.setItemImage(landscape.getImageID());
         landscapeViewHolder.setItemLocation(landscape.getLocation());
         landscapeViewHolder.setItemDescription(landscape.getDescription());
-        landscapeViewHolder.setItemPhotographer(landscape.getPhotographer());
-        landscapeViewHolder.setItemCamera(landscape.getCamera());
+//        landscapeViewHolder.setItemPhotographer(landscape.getPhotographer());
+//        landscapeViewHolder.setItemCamera(landscape.getCamera());
 
         landscapeViewHolder.itemImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, "Landscape item " + i, Toast.LENGTH_SHORT).show();
-//                ((LandscapesActivity) mContext)
+                ((LandscapesActivity) mContext).onLandscapeClicked(mLandscape.get(i));
             }
         });
 

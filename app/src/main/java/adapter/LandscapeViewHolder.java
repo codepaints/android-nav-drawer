@@ -6,16 +6,22 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import me.jatinsoni.navigationdrawer.R;
+
 public class LandscapeViewHolder extends RecyclerView.ViewHolder {
 
     public ImageView itemImage;
-    public TextView itemLocation;
-    public TextView itemDescription;
-    public TextView itemPhotographer;
-    public TextView itemCamera;
+    public TextView  itemLocation;
+    public TextView  itemDescription;
+    public TextView  itemPhotographer;
+    public TextView  itemCamera;
 
     public LandscapeViewHolder(@NonNull View itemView) {
         super(itemView);
+
+        this.itemImage = itemView.findViewById(R.id.landscape_thumb);
+        this.itemLocation = itemView.findViewById(R.id.landscape_location);
+        this.itemDescription = itemView.findViewById(R.id.landscape_description);
     }
 
     public void setItemImage(int itemImage) {
@@ -36,5 +42,9 @@ public class LandscapeViewHolder extends RecyclerView.ViewHolder {
 
     public void setItemCamera(String itemCamera) {
         this.itemCamera.setText(itemCamera);
+    }
+
+    public interface OnLandscapeClickListener {
+        void onLandscapeClicked(Landscape landscape);
     }
 }

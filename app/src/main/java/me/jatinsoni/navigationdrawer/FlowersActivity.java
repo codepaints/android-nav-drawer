@@ -17,9 +17,10 @@ import adapter.FlowerViewHolder;
 
 public class FlowersActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, FlowerViewHolder.OnFlowerClickListener {
 
-    NavigationView navigationView;
     FlowerGrid     flowerGrid;
     FlowerFeedback flowerFeedback;
+    
+    private NavigationView        navigationView;
     private DrawerLayout          drawerLayout;
     private ActionBarDrawerToggle toggle;
 
