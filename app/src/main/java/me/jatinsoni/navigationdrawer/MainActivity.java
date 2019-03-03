@@ -14,12 +14,11 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     NavigationView navigationView;
     private DrawerLayout          drawerLayout;
     private ActionBarDrawerToggle toggle;
-    private ImageView             flowerBanner, landscapeBanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +27,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout = findViewById(R.id.drawable_layout);
         navigationView = findViewById(R.id.navigation_view);
-
-        flowerBanner = findViewById(R.id.flower_banner);
-        landscapeBanner = findViewById(R.id.landscape_banner);
-
-        // set click for flower and landscape banners on main activity
-        flowerBanner.setOnClickListener(this);
-        landscapeBanner.setOnClickListener(this);
 
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
         drawerLayout.addDrawerListener(toggle);
@@ -87,17 +79,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()) {
-            case R.id.flower_banner:
-                Intent intent = new Intent(MainActivity.this, FlowersActivity.class);
-                startActivity(intent);
-
-            case R.id.landscape_banner:
-                switchActivity(LandscapesActivity.class);
-        }
-
-    }
 }
